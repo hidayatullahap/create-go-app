@@ -1,11 +1,21 @@
 #!/bin/bash
 project_name=$1
-project_root="$(pwd)/$project_name"
+project_root=$(pwd)/$project_name
 
 validate () {
   if [ -z "$project_name" ]
   then
     echo "Please insert project name"
+    exit
+  fi
+
+  if [ -d "$project_root" ]; then
+    echo "Project $project_name already exist, please use other name"
+    exit
+  fi
+
+  if [[ "$project_root" =~ [^a-zA-Z0-9-_] ]]; then
+    echo "Project name can only use alphanumeric, _, and -"
     exit
   fi
 }
@@ -34,10 +44,8 @@ printf '.env
 
 # main
 validate
-
 echo "Creating go project $project_name"
-echo $project_root
 
-mkdir -p $project_root
+mkdir $project_root
 createGoFiles
 createGitFiles
