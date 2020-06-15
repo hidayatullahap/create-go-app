@@ -1,7 +1,7 @@
 ## Create-go-app
 I really like to try stuff with Go, so i create a lot of new "Hello World" project. It feels so repetitive, inspired from create-react-app so I made this bash command to create simple hello world project generator.
 
-##How to use it
+## How to use it
 
 Clone it and give bash permission
 ```
