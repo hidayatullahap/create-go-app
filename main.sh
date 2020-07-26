@@ -29,6 +29,7 @@ func main()  {
     fmt.Println("Hello World!")
 }' > "$project_root/main.go"
 
+(cd "$project_root" && git init)
 (cd "$project_root" && go mod init "$project_name")
 }
 
@@ -37,8 +38,6 @@ printf '.env
 /vscode
 .idea' > "$project_root/.gitignore"
 
-(cd "$project_root" && git init)
-(cd "$project_root" && git add .)
 }
 
 
